@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Sitelerimiz – Kurumsal Site, E-ticaret, Web Uygulaması | Muhammet</title>
+<meta name="description" content="Müşterilerimiz için kurduğumuz web siteleri ve kendi projelerimiz. Kartlarda sitelerden alınmış ekran görüntüleri ve linkler.">
+<meta property="og:title" content="Web Sitelerimiz">
+<meta property="og:description" content="Müşterilerimiz için kurduğumuz web siteleri ve kendi projelerimiz, linkleriyle.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://veinpsycoo.github.io/web-portfoy/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e1013">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230e1013'/%3E%3Crect x='14' y='18' width='36' height='26' rx='4' fill='none' stroke='%2334d399' stroke-width='4'/%3E%3Cpath d='M24 50h16' stroke='%2334d399' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f3ee; --bg2:#ecE9e1; --card:#ffffff; --ink:#111316; --ink2:#4a4f57; --ink3:#7b818a;
+  --line:#e2ded4; --acc:#0f9f6e; --acc-ink:#ffffff; --acc-soft:#dff3ea; --chip:#ffffff;
+  --frame:#e9e6de; --shadow:0 1px 2px rgba(17,19,22,.06),0 12px 32px -12px rgba(17,19,22,.18);
+  --r:20px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1013; --bg2:#14171c; --card:#16191f; --ink:#f2f3f5; --ink2:#b4b9c2; --ink3:#868c96;
+    --line:#252a32; --acc:#34d399; --acc-ink:#05140e; --acc-soft:#12261f; --chip:#16191f;
+    --frame:#20252d; --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1013; --bg2:#14171c; --card:#16191f; --ink:#f2f3f5; --ink2:#b4b9c2; --ink3:#868c96;
+  --line:#252a32; --acc:#34d399; --acc-ink:#05140e; --acc-soft:#12261f; --chip:#16191f;
+  --frame:#20252d; --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Inter,system-ui,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-style:italic;letter-spacing:-.01em}
+
+/* üst çubuk */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.kay{border-bottom-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--ink);display:grid;place-items:center}
+.logo i:after{content:"";width:14px;height:10px;border:2.5px solid var(--acc);border-radius:3px}
+.top nav{display:flex;align-items:center;gap:6px}
+.top nav a.lk{font-size:14px;color:var(--ink2);text-decoration:none;padding:8px 12px;border-radius:999px}
+.top nav a.lk:hover{color:var(--ink);background:var(--bg2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;white-space:nowrap}
+.btn-wa{background:var(--acc);color:var(--acc-ink);box-shadow:0 6px 18px -6px color-mix(in srgb,var(--acc) 70%,transparent)}
+.btn-wa:hover{transform:translateY(-1px)}
+.btn-sm{height:38px;padding:0 14px;font-size:14px}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* giriş */
+.hero{padding-top:72px;padding-bottom:28px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink2);background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+.eyebrow b{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px var(--acc-soft)}
+.hero h1{font-size:clamp(40px,6.4vw,84px);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:22px 0 18px;max-width:14ch}
+.hero h1 .serif{font-weight:400;color:var(--acc)}
+.hero p.lead{font-size:clamp(17px,1.6vw,20px);color:var(--ink2);max-width:58ch;margin:0 0 30px;text-wrap:pretty}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center}
+.yigin{position:relative;height:470px}
+.yigin .pc{position:absolute;width:86%;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:0 24px 60px -24px rgba(17,19,22,.35)}
+.yigin .pc .bar{display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;background:var(--bg2);border-bottom:1px solid var(--line)}
+.yigin .pc .bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.yigin .pc .bar span{margin-left:6px;font-size:10.5px;color:var(--ink3)}
+.yigin .pc img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top}
+.yigin .p1{top:0;right:0;transform:rotate(2.2deg);z-index:1}
+.yigin .p2{top:118px;left:0;transform:rotate(-2.6deg);z-index:2}
+.yigin .p3{top:236px;right:4%;transform:rotate(1.2deg);z-index:3}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{background:var(--card)}
+.sayac{display:flex;flex-wrap:wrap;gap:28px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
+.sayac div{min-width:110px}
+.sayac strong{display:block;font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.sayac span{font-size:14px;color:var(--ink3)}
+.platformlar{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.platformlar span{font-size:13px;color:var(--ink2);border:1px dashed var(--line);border-radius:999px;padding:5px 11px}
+
+/* filtre */
+.filtre{position:sticky;top:64px;z-index:15;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:14px 0;margin-top:28px}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--chip);color:var(--ink2);font:600 14px/1 Inter,system-ui,sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .15s}
+.chip em{font-style:normal;font-size:12px;color:var(--ink3);background:var(--bg2);border-radius:999px;padding:3px 7px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip .m{display:none}
+.chip[aria-pressed="true"] em{background:color-mix(in srgb,var(--bg) 18%,transparent);color:var(--bg)}
+
+/* kartlar */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;padding:18px 0 40px}
+.kart{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.kart:hover{transform:translateY(-3px)}
+.sahne{position:relative;display:block;background:linear-gradient(160deg,var(--bg2),var(--frame));padding:22px 22px 0;overflow:hidden;text-decoration:none}
+.tarayici{border-radius:12px 12px 0 0;overflow:hidden;background:var(--card);box-shadow:0 18px 40px -18px rgba(0,0,0,.35);border:1px solid color-mix(in srgb,var(--line) 70%,transparent);border-bottom:0}
+.tarayici .bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;background:var(--bg2);border-bottom:1px solid var(--line)}
+.tarayici .bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.tarayici .bar span{margin-left:8px;flex:1;min-width:0;height:18px;border-radius:6px;background:var(--card);font-size:11px;color:var(--ink3);display:flex;align-items:center;padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tarayici img{width:100%;height:auto;aspect-ratio:1366/768;object-fit:cover;object-position:top}
+.telefon{position:absolute;right:18px;bottom:-34px;width:24%;min-width:92px;border-radius:22px;padding:5px;background:#0b0c0e;box-shadow:0 22px 44px -14px rgba(0,0,0,.55);transition:transform .35s}
+.telefon img{border-radius:17px;width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:top}
+.kart:hover .telefon{transform:translateY(-10px)}
+.govde{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.etiketler{display:flex;flex-wrap:wrap;gap:6px}
+.etiket{font-size:12px;font-weight:600;color:var(--ink2);background:var(--bg2);border-radius:999px;padding:4px 10px}
+.etiket.musteri{color:var(--acc);background:var(--acc-soft)}
+.kart h3{margin:2px 0 0;font-size:21px;letter-spacing:-.02em;line-height:1.2}
+.kart p{margin:0;color:var(--ink2);font-size:15px}
+.kart .alt{margin-top:auto;padding-top:8px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.alan{font-size:13px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.ac{flex:none;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid var(--line)}
+.ac:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ac svg{width:14px;height:14px}
+.grup{grid-column:1/-1;display:flex;align-items:baseline;gap:12px;margin:18px 0 -8px}
+.grup:first-child{margin-top:4px}
+.grup h2{margin:0;font-size:24px;letter-spacing:-.025em;line-height:1.2}
+.grup span{color:var(--ink3);font-size:14px}
+.bos{display:none;text-align:center;color:var(--ink3);padding:40px 0}
+
+/* alt bant */
+.bant{margin:20px 0 64px;border-radius:28px;background:var(--ink);color:var(--bg);padding:48px;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;position:relative;overflow:hidden}
+.bant:after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--acc) 45%,transparent),transparent 70%);pointer-events:none}
+.bant h2{margin:0 0 10px;font-size:clamp(28px,3.6vw,44px);line-height:1.08;letter-spacing:-.03em}
+.bant h2 .serif{color:var(--acc)}
+.bant p{margin:0;color:color-mix(in srgb,var(--bg) 72%,var(--ink));max-width:46ch}
+.bant ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;position:relative;z-index:1}
+.bant li{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.bant li:before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--acc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2305140e' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat}
+.bant .btn-wa{margin-top:24px;position:relative;z-index:1}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink3);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:var(--ink2)}
+
+/* sabit WA düğmesi (mobil) */
+.wa-sabit{display:none}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:minmax(0,1fr);gap:22px}
+  .hero{display:block}
+  .yigin{display:none}
+  .bant{grid-template-columns:minmax(0,1fr);padding:32px 24px}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .top nav a.lk{display:none}
+  .hero{padding-top:36px;padding-bottom:12px}
+  .hero h1{font-size:clamp(36px,10.5vw,44px)}
+  .hero h1{margin:18px 0 14px}
+  .hero p.lead{margin-bottom:22px}
+  .sayac{gap:18px;margin-top:26px;padding-top:18px}
+  .platformlar{margin-top:14px}
+  .sayac div{min-width:0;flex:1}
+  .sayac strong{font-size:28px}
+  .sahne{padding:14px 14px 0}
+  .tarayici .bar{height:24px}
+  .telefon{right:12px;width:27%;min-width:0;border-radius:16px;padding:4px;bottom:-26px}
+  .telefon img{border-radius:12px}
+  .govde{padding:16px 16px 18px}
+  .kart h3{font-size:19px}
+  .chips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .chip{height:40px;padding:0 6px;justify-content:center;font-size:14px}
+  .chip .d{display:none}
+  .chip .m{display:inline}
+  .chip em{display:none}
+  .bant{margin-bottom:84px;border-radius:22px}
+  .wa-sabit{display:flex;position:fixed;right:16px;bottom:16px;z-index:30;width:56px;height:56px;padding:0;border-radius:50%;box-shadow:0 10px 30px -8px rgba(0,0,0,.45)}
+  .wa-sabit svg{width:26px;height:26px}
+  .wa-sabit .yazi{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .wa-sabit.gizli{opacity:0;pointer-events:none;transform:translateY(12px)}
+  .wa-sabit{transition:opacity .2s,transform .2s}
+}
+@media (min-width:901px){.hero h1{font-size:clamp(44px,4.7vw,66px)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#"><i></i><span>Web Sitelerimiz</span></a>
+    <nav>
+      <a class="lk" href="#siteler">Siteler</a>
+      <a class="lk" href="https://video-portfoy-site.vercel.app" target="_blank" rel="noopener">Video portföyü</a>
+      <a class="btn btn-wa btn-sm wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div>
+    <span class="eyebrow"><b></b>Kurumsal site · E-ticaret · Web uygulaması</span>
+    <h1>Kurduğumuz siteler, <span class="serif">bir arada.</span></h1>
+    <p class="lead">Müşterilerimiz için kurduğumuz siteler ve kendi projelerimiz. Ekran görüntüleri Ekim 2026'da sitelerden alındı; tıklayıp kendin gez.</p>
+    <div class="cta">
+      <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp'tan yaz</a>
+      <a class="btn btn-ghost" href="#siteler">Siteleri gör</a>
+    </div>
+    <div class="sayac">
+      <div><strong id="s-top">0</strong><span>site</span></div>
+      <div><strong id="s-mus">0</strong><span>müşteri sitesi</span></div>
+      <div><strong id="s-ken">0</strong><span>kendi projemiz</span></div>
+    </div>
+    <div class="platformlar" id="platformlar"></div>
+    </div>
+    <div class="yigin" aria-hidden="true">
+      <div class="pc p1"><div class="bar"><i></i><i></i><i></i><span>lidyaflowers.com</span></div><img src="img/lidyaflowers-d.webp" width="960" height="540" alt="" loading="lazy"></div>
+      <div class="pc p2"><div class="bar"><i></i><i></i><i></i><span>bkjpower.com.tr</span></div><img src="img/bkjpower-d.webp" width="960" height="540" alt="" loading="lazy"></div>
+      <div class="pc p3"><div class="bar"><i></i><i></i><i></i><span>oguzhanharita.com</span></div><img src="img/oguzhanharita-d.webp" width="960" height="540" alt="" loading="lazy"></div>
+    </div>
+  </section>
+
+  <div class="filtre" id="siteler">
+    <div class="wrap chips" role="group" aria-label="Siteleri filtrele">
+      <button class="chip" data-f="hepsi" aria-pressed="true">Tümü <em id="c-hepsi"></em></button>
+      <button class="chip" data-f="musteri" aria-pressed="false"><span>Müşteri<span class="d"> siteleri</span></span> <em id="c-musteri"></em></button>
+      <button class="chip" data-f="kendi" aria-pressed="false"><span class="d">Kendi projelerimiz</span><span class="m">Projelerimiz</span> <em id="c-kendi"></em></button>
+    </div>
+  </div>
+
+  <section class="wrap">
+    <div class="grid" id="grid"></div>
+    <p class="bos" id="bos">Bu filtrede site yok.</p>
+
+    <div class="bant">
+      <div>
+        <h2>Siten yoksa kuralım, <span class="serif">bozulduysa onaralım.</span></h2>
+        <p>Kurumsal site, e-ticaret mağazası ya da aklındaki web uygulaması. Ne istediğini WhatsApp'tan kısaca yaz, birlikte bakalım.</p>
+        <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp'tan yaz</a>
+      </div>
+      <ul>
+        <li>Telefonda da düzgün görünen sayfalar</li>
+        <li>WhatsApp butonu, harita ve iletişim formu</li>
+        <li>Shopify, Wix, ikas ve WordPress kurulumu, ürün aktarımı</li>
+        <li>Bozulan ya da açılmayan sitenin onarımı</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Web Sitelerimiz · Muhammet Çay</span>
+    <span><a href="https://video-portfoy-site.vercel.app" target="_blank" rel="noopener">Video portföyü</a> · <a class="wa" href="#" target="_blank" rel="noopener">WhatsApp</a></span>
+  </div>
+</footer>
+
+<a class="btn btn-wa wa wa-sabit" href="#" target="_blank" rel="noopener" aria-label="WhatsApp'tan yaz"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span class="yazi">WhatsApp'tan yaz</span></a>
+
+<script src="siteler.js"></script>
+<script>
+(function(){
+  var WA = 'https://wa.me/905380545553?text=' + encodeURIComponent('Merhaba, web sitesi için bilgi almak istiyorum');
+  document.querySelectorAll('a.wa').forEach(function(a){ a.href = WA; });
+
+  var S = window.SITELER || [];
+  var grid = document.getElementById('grid');
+  var ok = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+  function esc(t){ return String(t).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function alan(u){ try { return new URL(u).host.replace(/^www\./,''); } catch(e){ return u; } }
+
+  var say = { hepsi: S.length, musteri: 0, kendi: 0 };
+  S.forEach(function(s){ say[s.tur]++; });
+
+  grid.innerHTML = S.map(function(s, i){
+    var yukle = i < 2 ? 'eager' : 'lazy';
+    var bas = (i === 0 || S[i-1].tur !== s.tur) ? '<div class="grup" data-grup="' + s.tur + '"><h2>' + (s.tur === 'musteri' ? 'Müşteri siteleri' : 'Kendi projelerimiz') + '</h2><span>' + say[s.tur] + ' site</span></div>' : '';
+    return bas + '<article class="kart" data-tur="' + s.tur + '">' +
+      '<a class="sahne" href="' + esc(s.url) + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">' +
+        '<div class="tarayici"><div class="bar"><i></i><i></i><i></i><span>' + esc(alan(s.url)) + '</span></div>' +
+        '<img src="img/' + s.id + '-d.webp" width="960" height="540" loading="' + yukle + '" decoding="async" alt=""></div>' +
+        '<div class="telefon"><img src="img/' + s.id + '-m.webp" width="360" height="779" loading="' + yukle + '" decoding="async" alt=""></div>' +
+      '</a>' +
+      '<div class="govde">' +
+        '<div class="etiketler"><span class="etiket' + (s.tur === 'musteri' ? ' musteri' : '') + '">' + (s.tur === 'musteri' ? 'Müşteri sitesi' : 'Kendi projemiz') + '</span>' +
+          '<span class="etiket">' + esc(s.sektor) + '</span>' + (s.platform ? '<span class="etiket">' + esc(s.platform) + '</span>' : '') + (s.dil === 'en' ? '<span class="etiket">İngilizce</span>' : '') + '</div>' +
+        '<h3>' + esc(s.ad) + '</h3><p>' + esc(s.aciklama) + '</p>' +
+        '<div class="alt"><span class="alan">' + esc(alan(s.url)) + '</span><a class="ac" href="' + esc(s.url) + '" target="_blank" rel="noopener" aria-label="' + esc(s.ad) + ' sitesini aç">Siteyi aç ' + ok + '</a></div>' +
+      '</div></article>';
+  }).join('');
+
+  document.getElementById('s-top').textContent = say.hepsi;
+  document.getElementById('s-mus').textContent = say.musteri;
+  document.getElementById('s-ken').textContent = say.kendi;
+  ['hepsi','musteri','kendi'].forEach(function(k){ document.getElementById('c-' + k).textContent = say[k]; });
+
+  var pl = {};
+  S.forEach(function(s){ if (s.platform) pl[s.platform] = 1; });
+  document.getElementById('platformlar').innerHTML = Object.keys(pl).map(function(p){ return '<span>' + esc(p) + '</span>'; }).join('');
+
+  var chips = document.querySelectorAll('.chip');
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      var f = c.getAttribute('data-f');
+      chips.forEach(function(x){ x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+      var gorunen = 0;
+      document.querySelectorAll('.kart').forEach(function(k){
+        var g = f === 'hepsi' || k.getAttribute('data-tur') === f;
+        k.style.display = g ? '' : 'none';
+        if (g) gorunen++;
+      });
+      document.querySelectorAll('.grup').forEach(function(g){ g.style.display = (f === 'hepsi' || g.getAttribute('data-grup') === f) ? '' : 'none'; });
+      document.getElementById('bos').style.display = gorunen ? 'none' : 'block';
+      var hedef = document.getElementById('siteler');
+      if (hedef.getBoundingClientRect().top < 0) window.scrollTo({ top: window.scrollY + hedef.getBoundingClientRect().top - 64, behavior: 'smooth' });
+    });
+  });
+
+  var top = document.getElementById('top');
+  var sabit = document.querySelector('.wa-sabit');
+  var bant = document.querySelector('.bant');
+  function kaydir(){
+    top.classList.toggle('kay', window.scrollY > 8);
+    var r = bant.getBoundingClientRect();
+    sabit.classList.toggle('gizli', window.scrollY < 300 || (r.top < window.innerHeight && r.bottom > 0));
+  }
+  window.addEventListener('scroll', kaydir, { passive: true });
+  kaydir();
+})();
+</script>
+</body>
+</html>
