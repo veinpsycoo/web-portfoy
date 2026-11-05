@@ -1,0 +1,50 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kapıda Ödeme Satış Sayfası Örneği</title><meta name="robots" content="noindex">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f3f4f6;color:#111}
+.w{max-width:620px;margin:0 auto;background:#fff;min-height:100vh}
+.bar{background:#e11d48;color:#fff;text-align:center;padding:10px;font-weight:700;font-size:15px}
+.hero{padding:28px 20px;background:linear-gradient(160deg,#1e3a8a,#2563eb);color:#fff;text-align:center}
+.hero h1{margin:0 0 8px;font-size:26px}.hero p{margin:0;opacity:.9}
+.img{height:260px;margin:18px 20px;border-radius:14px;background:linear-gradient(135deg,#dbeafe,#bfdbfe);display:flex;align-items:center;justify-content:center;color:#1e3a8a;font-weight:700;text-align:center;padding:10px}
+.ozl{padding:0 20px}.ozl li{margin:8px 0}
+.cd{margin:16px 20px;padding:12px;border-radius:10px;background:#fff7ed;border:1px dashed #f97316;text-align:center;font-weight:700;color:#c2410c}
+form{margin:18px 20px 30px;padding:18px;border-radius:14px;box-shadow:0 2px 12px #0002}
+form h2{margin:0 0 12px;text-align:center;font-size:20px}
+.pk{display:block;border:2px solid #e5e7eb;border-radius:10px;padding:12px;margin:8px 0;cursor:pointer}
+.pk:has(input:checked){border-color:#16a34a;background:#f0fdf4}.pk b{float:right}
+input[type=text],input[type=tel],select,textarea{width:100%;padding:14px;margin:6px 0;border:1px solid #d1d5db;border-radius:10px;font-size:16px}
+label.l{font-size:14px;font-weight:600;display:block;margin-top:8px}
+button{width:100%;padding:16px;margin-top:12px;border:0;border-radius:12px;background:#16a34a;color:#fff;font-size:19px;font-weight:800;cursor:pointer}
+.ok{display:none;margin:18px 20px;padding:18px;border-radius:12px;background:#ecfdf5;border:1px solid #16a34a;text-align:center}
+footer{padding:18px 20px 90px;font-size:13px;color:#555;text-align:center;border-top:1px solid #eee}footer a{color:#555;margin:0 6px}
+.st{position:fixed;left:0;right:0;bottom:0;padding:10px;background:#fff;box-shadow:0 -2px 10px #0002}.st a{display:block;max-width:600px;margin:0 auto;padding:14px;border-radius:12px;background:#e11d48;color:#fff;text-align:center;font-weight:800;text-decoration:none}
+.wa{position:fixed;right:14px;bottom:84px;width:54px;height:54px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;text-decoration:none;box-shadow:0 2px 8px #0004}
+</style></head><body><div class="w">
+<div class="bar">KAPIDA ÖDEME · ÜCRETSİZ KARGO</div>
+<div class="hero"><h1>Ürün Adınız Burada</h1><p>Kısa ve güçlü vaat cümlesi — müşterinin derdini çözen tek cümle</p></div>
+<div class="img">Ürün görseli 1<br>(sizin fotoğraflarınız)</div>
+<ul class="ozl"><li>✔ Birinci fayda maddesi</li><li>✔ İkinci fayda maddesi</li><li>✔ Üçüncü fayda maddesi</li></ul>
+<div class="img">Ürün görseli 2 / kullanım anı</div>
+<div class="cd">Kampanyanın bitmesine: <span id="t">--:--:--</span></div>
+<form id="f"><h2>Sipariş Formu</h2>
+<label class="pk"><input type="radio" name="paket" value="1 Adet - 499 TL" checked> 1 Adet <b>499 TL</b></label>
+<label class="pk"><input type="radio" name="paket" value="2 Adet - 799 TL"> 2 Adet <b>799 TL</b></label>
+<label class="pk"><input type="radio" name="paket" value="3 Adet - 999 TL"> 3 Adet (en çok tercih edilen) <b>999 TL</b></label>
+<label class="l">Ad Soyad</label><input type="text" name="ad" required>
+<label class="l">Telefon</label><input type="tel" name="tel" required pattern="0?5[0-9]{9}" placeholder="05xx xxx xx xx">
+<label class="l">İl</label><select name="il" id="il" required><option value="">Seçiniz</option></select>
+<label class="l">İlçe</label><input type="text" name="ilce" required>
+<label class="l">Açık Adres</label><textarea name="adres" rows="3" required></textarea>
+<label class="l">Ödeme</label><select name="odeme"><option>Kapıda Nakit</option><option>Kapıda Kredi Kartı</option></select>
+<button>SİPARİŞİ TAMAMLA</button></form>
+<div class="ok" id="ok"><b>Siparişiniz alındı</b><br>Bu bir örnek sayfadır. Gerçek kurulumda sipariş size e-posta / WhatsApp olarak düşer ve WordPress panelinde listelenir.</div>
+<footer><a href="#">Mesafeli Satış Sözleşmesi</a><a href="#">Gizlilik</a><a href="#">İade Koşulları</a><a href="#">İletişim</a><br><br>Örnek tasarım · alan adınız ve markanızla kurulur</footer>
+</div>
+<a class="wa" href="#" aria-label="WhatsApp">WA</a>
+<div class="st"><a href="#f">HEMEN SİPARİŞ VER</a></div>
+<script>
+const iller="Adana,Adıyaman,Afyonkarahisar,Ağrı,Aksaray,Amasya,Ankara,Antalya,Ardahan,Artvin,Aydın,Balıkesir,Bartın,Batman,Bayburt,Bilecik,Bingöl,Bitlis,Bolu,Burdur,Bursa,Çanakkale,Çankırı,Çorum,Denizli,Diyarbakır,Düzce,Edirne,Elazığ,Erzincan,Erzurum,Eskişehir,Gaziantep,Giresun,Gümüşhane,Hakkari,Hatay,Iğdır,Isparta,İstanbul,İzmir,Kahramanmaraş,Karabük,Karaman,Kars,Kastamonu,Kayseri,Kilis,Kırıkkale,Kırklareli,Kırşehir,Kocaeli,Konya,Kütahya,Malatya,Manisa,Mardin,Mersin,Muğla,Muş,Nevşehir,Niğde,Ordu,Osmaniye,Rize,Sakarya,Samsun,Şanlıurfa,Siirt,Sinop,Sivas,Şırnak,Tekirdağ,Tokat,Trabzon,Tunceli,Uşak,Van,Yalova,Yozgat,Zonguldak".split(",");
+const s=document.getElementById('il');iller.forEach(i=>s.add(new Option(i,i)));
+const end=new Date();end.setHours(23,59,59);setInterval(()=>{let d=Math.max(0,end-new Date())/1e3|0;document.getElementById('t').textContent=[d/3600|0,d/60%60|0,d%60].map(n=>String(n).padStart(2,'0')).join(':')},1000);
+document.getElementById('f').onsubmit=e=>{e.preventDefault();e.target.style.display='none';const o=document.getElementById('ok');o.style.display='block';o.scrollIntoView({behavior:'smooth'})};
+</script></body></html>
