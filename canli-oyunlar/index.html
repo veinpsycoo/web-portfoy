@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Canlı Oyunlar · TikTok Canlı Yayın Etkileşim Oyunları</title>
+<meta name="description" content="TikTok canlı yayınınız için hazır etkileşim oyunları: Hamam Böceği Düğünü ve Sanal Plaza. Kaynak kod, PDF kurulum rehberi ve WhatsApp kurulum desteği.">
+<meta property="og:title" content="Canlı Oyunlar · TikTok Canlı Yayın Oyunları">
+<meta property="og:description" content="İzleyici sohbete yazar, oyuna girer. Hazır oyun + kaynak kod + PDF rehber + WhatsApp desteği.">
+<meta property="og:image" content="img/plaza-01.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07060d;--ink:#f6f3ff;--mute:#a59fbd;--pink:#ff2e7e;--cyan:#25f4ee;--gold:#ffc83d;--card:rgba(255,255,255,.055);--line:rgba(255,255,255,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Manrope,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}
+.blob{position:fixed;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.35;z-index:-1;animation:drift 18s ease-in-out infinite alternate}
+.b1{background:var(--pink);top:-25vmax;left:-20vmax}
+.b2{background:var(--cyan);bottom:-30vmax;right:-20vmax;animation-delay:-9s}
+@keyframes drift{to{transform:translate(12vmax,8vmax) scale(1.15)}}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font:800 20px Unbounded,sans-serif;letter-spacing:-.02em}
+.logo b{background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.live{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#fff;font:800 12px Manrope;padding:5px 12px;border-radius:99px;letter-spacing:.12em}
+.live i{width:8px;height:8px;border-radius:50%;background:#fff;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.25;transform:scale(.6)}}
+.hero{padding:56px 0 40px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+h1{font:800 clamp(38px,6.4vw,76px)/1.02 Unbounded,sans-serif;letter-spacing:-.03em;margin:18px 0}
+h1 .g{background:linear-gradient(100deg,var(--cyan),#fff 45%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200%;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
+.lead{color:var(--mute);font-size:18px;max-width:34em}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:14px;font-weight:800;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px)}
+.wa{background:#25d366;color:#04210f;box-shadow:0 10px 40px -10px #25d366}
+.ghost{border:1px solid var(--line);background:var(--card)}
+.phone{position:relative;justify-self:center;width:min(300px,78vw);aspect-ratio:9/16;border-radius:38px;padding:10px;background:linear-gradient(160deg,var(--cyan),var(--pink));box-shadow:0 30px 80px -20px rgba(255,46,126,.6);animation:float 6s ease-in-out infinite}
+.phone img{width:100%;height:100%;object-fit:cover;border-radius:30px;display:block;background:#111}
+.phone .tag{position:absolute;top:24px;left:24px}
+@keyframes float{50%{transform:translateY(-14px) rotate(-1.5deg)}}
+.hearts{position:absolute;right:-6px;bottom:40px;pointer-events:none}
+.hearts span{position:absolute;font-size:26px;animation:up 3.2s linear infinite;opacity:0}
+.hearts span:nth-child(2){animation-delay:.8s;right:18px}.hearts span:nth-child(3){animation-delay:1.6s;right:-8px}.hearts span:nth-child(4){animation-delay:2.4s;right:10px}
+@keyframes up{0%{opacity:0;transform:translateY(0) scale(.6)}15%{opacity:1}100%{opacity:0;transform:translateY(-260px) scale(1.2)}}
+.ticker{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0;margin:30px 0;background:rgba(255,255,255,.03)}
+.ticker div{display:inline-block;animation:marq 26s linear infinite;font:600 15px Unbounded,sans-serif;color:var(--mute)}
+.ticker b{color:var(--gold);margin:0 22px}
+@keyframes marq{to{transform:translateX(-50%)}}
+h2{font:800 clamp(28px,4vw,44px)/1.1 Unbounded,sans-serif;letter-spacing:-.02em;margin-bottom:10px}
+.sub{color:var(--mute);margin-bottom:34px}
+section{padding:56px 0}
+.game{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:30px;margin-bottom:34px;backdrop-filter:blur(8px);position:relative;overflow:hidden}
+.game::before{content:"";position:absolute;inset:-2px;border-radius:30px;padding:2px;background:conic-gradient(from var(--a,0deg),transparent 70%,var(--c1),var(--c2),transparent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 6s linear infinite;pointer-events:none}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.game.h{--c1:var(--gold);--c2:var(--pink)}.game.p{--c1:var(--cyan);--c2:#8b5cf6}
+.game.flip .shots{order:2}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.shots img,.shots video{width:100%;border-radius:16px;display:block;border:1px solid var(--line);transition:transform .35s}
+.shots img:hover,.shots video:hover{transform:scale(1.04) rotate(-.6deg)}
+.shots .tall{grid-row:span 2;height:100%;object-fit:cover}
+.badge{display:inline-block;font:800 11px Manrope;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:99px;background:rgba(255,255,255,.08);margin-bottom:12px}
+.game h3{font:800 30px/1.1 Unbounded,sans-serif;margin-bottom:12px}
+.game ul{list-style:none;margin:16px 0}
+.game li{padding:7px 0 7px 30px;position:relative;border-bottom:1px dashed var(--line)}
+.game li::before{content:"✦";position:absolute;left:4px;color:var(--c1)}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:18px 0 6px}
+.price b{white-space:nowrap;font:800 40px Unbounded,sans-serif;background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.price span{color:var(--mute)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;transition:transform .3s,border-color .3s}
+.step:hover{transform:translateY(-6px);border-color:var(--cyan)}
+.step em{font:800 34px Unbounded,sans-serif;font-style:normal;color:var(--pink);display:block;margin-bottom:8px}
+.soon{text-align:center;border:2px dashed var(--line);border-radius:28px;padding:44px 20px}
+.soon h3{font:800 26px Unbounded,sans-serif;margin-bottom:8px}
+.note{color:var(--mute);font-size:14px;max-width:46em;margin:0 auto;text-align:center}
+footer{padding:40px 0 110px;text-align:center;color:var(--mute);font-size:14px}
+.float-wa{position:fixed;right:18px;bottom:18px;z-index:9;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.5);animation:ring 2.4s infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 22px rgba(37,211,102,0)}}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
+.reveal.on{opacity:1;transform:none}
+@media (max-width:860px){.hero,.game{grid-template-columns:1fr}.game.flip .shots{order:0}.steps{grid-template-columns:1fr 1fr}.game{padding:20px}}
+@media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div>
+<div class="wrap">
+<nav><div class="logo">canlı<b>oyunlar</b></div><a class="live" href="#oyunlar"><i></i>CANLI</a></nav>
+
+<header class="hero">
+<div>
+<span class="badge">TikTok LIVE Studio için hazır oyunlar</span>
+<h1>Yayınını <span class="g">oyun salonuna</span> çevir.</h1>
+<p class="lead">İzleyici sohbete yazar, kendi adıyla oyuna girer. Hediye atan sahnede olay açar. Oyunları kendimiz yaptık, kendi yayınlarımızda çalıştırıyoruz; sana kaynak kodu, PDF kurulum rehberi ve WhatsApp desteğiyle teslim ediyoruz.</p>
+<div class="btns">
+<a class="btn wa" href="https://wa.me/905380545553?text=canli%20yayin%20oyunlari%20icin%20yaziyorum">💬 WhatsApp'tan yaz</a>
+<a class="btn ghost" href="#oyunlar">🎮 Oyunları gör</a>
+</div>
+</div>
+<div class="phone"><span class="live tag"><i></i>CANLI</span><img src="img/plaza-01.webp" alt="Sanal Plaza oyunundan bir kare: dört katlı plaza ve karakterler"><div class="hearts"><span>💗</span><span>🎁</span><span>💗</span><span>🌹</span></div></div>
+</header>
+</div>
+
+<div class="ticker" aria-hidden="true"><div>
+<b>★</b>MERHABA yaz plazaya gir<b>★</b>HALAY yaz çembere katıl<b>★</b>hediye at kat çık<b>★</b>en çok atan PATRON<b>★</b>gelin damat halay başı<b>★</b>kaynak kod dahil<b>★</b>PDF kurulum rehberi<b>★</b>WhatsApp desteği
+<b>★</b>MERHABA yaz plazaya gir<b>★</b>HALAY yaz çembere katıl<b>★</b>hediye at kat çık<b>★</b>en çok atan PATRON<b>★</b>gelin damat halay başı<b>★</b>kaynak kod dahil<b>★</b>PDF kurulum rehberi<b>★</b>WhatsApp desteği
+</div></div>
+
+<main class="wrap">
+<section id="oyunlar">
+<h2>Oyunlar</h2>
+<p class="sub">Her oyun 9:16 dikey sahne, Windows 10/11 bilgisayarda TikTok LIVE Studio ile yayınlanır.</p>
+
+<article class="game p reveal">
+<div class="shots">
+<img class="tall" src="img/plaza-01.webp" alt="Sanal Plaza dört katlı bina görünümü">
+<img src="img/plaza-02.webp" alt="Ofis katı, sekreter ve çaycı">
+<img src="img/plaza-03.webp" alt="Eğlence katı ve lobi">
+</div>
+<div>
+<span class="badge">🏢 Yeni</span>
+<h3>Sanal Plaza</h3>
+<p>İzleyici sohbete <b>MERHABA</b> yazar, kendi karakteriyle iş plazasına girer. Hediye atan kat çıkar, en çok atan patron koltuğuna oturur.</p>
+<ul>
+<li>4 kat: Lobi, Ofis, Eğlence Katı, Çatı Katı ve jakuzi</li>
+<li>1 jeton ofis masası · 10 jeton eğlence · 50 jeton çatı katı</li>
+<li>500+ jeton atan 10 dakika PATRON</li>
+<li>Karakter adını yazan o karakter olur: avukat, doktor, aşçı, futbolcu…</li>
+<li>Sekreter, çaycı, temizlikçi abla, güvenlik</li>
+</ul>
+<div class="price"><b>599 TL</b><span>kaynak kod + PDF rehber + WhatsApp desteği</span></div>
+<a class="btn wa" href="https://wa.me/905380545553?text=sanal%20plaza%20oyunu%20icin%20yaziyorum">💬 Sanal Plaza'yı sor</a>
+</div>
+</article>
+
+<article class="game h flip reveal">
+<div class="shots">
+<video class="tall" src="img/halay-meydani-tanitim.mp4" poster="img/03-oyun-halka.webp" autoplay muted loop playsinline aria-label="Hamam Böceği Düğünü tanıtım videosu"></video>
+<img src="img/01-hero.webp" alt="Hamam Böceği Düğünü köy meydanı">
+<img src="img/02-hediye-tablosu.webp" alt="Hediye ve olay tablosu">
+</div>
+<div>
+<span class="badge">🪳 En çok satan</span>
+<h3>Hamam Böceği Düğünü</h3>
+<p>İzleyici sohbete <b>halay</b> ya da <b>horon</b> yazar, kendi böceği köy yolundan yürüyüp çembere katılır. Hediye atan gelin olur, damat olur, para saçar ya da mendili kapıp halay başına geçer.</p>
+<ul>
+<li>150 kişilik çember, kullanıcı adı başında görünür</li>
+<li>Gelin 50 · damat 75 · para saçma 150 · halay başı 200 · solo 1.000 jeton</li>
+<li>Takip altın, paylaşım konfeti, her 100 beğenide meydan sıçrar</li>
+<li>!ben, !ayrıl, !stil komutları</li>
+<li>Canlıya çıkmadan prova modu</li>
+</ul>
+<div class="price"><b>749 TL</b><span>oyun dosyaları + PDF rehber + WhatsApp desteği</span></div>
+<a class="btn wa" href="https://wa.me/905380545553?text=hamam%20bocegi%20dugunu%20icin%20yaziyorum">💬 Hamam Böceği'ni sor</a>
+</div>
+</article>
+
+<div class="soon reveal"><h3>Yeni oyunlar yolda 🚀</h3><p class="note">Seriye yeni oyunlar ekliyoruz. Kendi yayınına özel tema istersen yaz, konuşalım.</p></div>
+</section>
+
+<section>
+<h2>Nasıl çalışır</h2>
+<p class="sub">Satın aldıktan sonra yayına çıkman dört adım.</p>
+<div class="steps">
+<div class="step reveal"><em>01</em><b>WhatsApp'tan yaz</b><p>Hangi oyunu istediğini söyle.</p></div>
+<div class="step reveal"><em>02</em><b>Paketi al</b><p>Oyun, kaynak kod ve PDF rehber indirme bağlantısıyla gelir.</p></div>
+<div class="step reveal"><em>03</em><b>Kur ve prova et</b><p>Rehberle kur, takıldığın yerde WhatsApp'tan adım adım anlatıyoruz.</p></div>
+<div class="step reveal"><em>04</em><b>Canlıya çık</b><p>LIVE Studio'ya ekle, izleyicin oyuna girsin.</p></div>
+</div>
+</section>
+
+<p class="note">Gerekenler: Windows 10/11 bilgisayar ve TikTok LIVE Studio erişimi olan hesap. Hediyeleri TikTok'un kendi sistemi gönderir, yayıncı ödülünü TikTok hesaplar; kazanç yayınına ve izleyicine bağlıdır, kazanç sözü vermiyoruz. Canlı yayın açma şartlarını TikTok belirler.</p>
+</main>
+
+<footer>canlıoyunlar · TikTok canlı yayın etkileşim oyunları · <a href="https://wa.me/905380545553">WhatsApp 0538 054 55 53</a></footer>
+<a class="float-wa" href="https://wa.me/905380545553?text=canli%20yayin%20oyunlari%20icin%20yaziyorum" aria-label="WhatsApp'tan yaz"><svg width="32" height="32" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.3-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg></a>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
