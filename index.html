@@ -141,6 +141,16 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink3);fo
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 footer a{color:var(--ink2)}
 
+
+/* örnek iş sayfaları */
+.ornek{margin-top:40px}
+.ornek .og{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}
+.ornek a.oc{display:flex;flex-direction:column;gap:4px;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);text-decoration:none;transition:transform .2s}
+.ornek a.oc:hover{transform:translateY(-3px)}
+.ornek a.oc b{font-size:18px;letter-spacing:-.01em}
+.ornek a.oc span{font-size:14px;color:var(--ink2)}
+.ornek a.oc em{font-style:normal;font-size:13px;font-weight:600;color:var(--acc);margin-top:6px}
+@media (max-width:700px){.ornek .og{grid-template-columns:minmax(0,1fr)}}
 /* sabit WA düğmesi (mobil) */
 .wa-sabit{display:none}
 
@@ -316,6 +326,15 @@ footer a{color:var(--ink2)}
       </article>
     </div>
     <p class="not">Windows bilgisayar ve TikTok LIVE Studio gerekir, Mac'te çalışmaz. Videolardaki izleyici adları demo amaçlıdır. Yayın kazancı TikTok'un kurallarına ve izleyiciye bağlıdır.</p>
+  </section>
+
+  <section class="wrap ornek" id="ornek">
+    <h2 style="margin:0;font-size:clamp(22px,3vw,28px);letter-spacing:-.025em">Diğer <span class="serif">örnek işlerimiz</span></h2>
+    <div class="og">
+      <a class="oc" href="logo/"><b>Logo ve grafik tasarım</b><span>Logo, afiş, kapak ve paket görselleri.</span><em>İşleri gör &rarr;</em></a>
+      <a class="oc" href="bot/"><b>Bot ve otomasyon</b><span>Oyun botları, yayın oyunları, Telegram ve Discord botları.</span><em>İşleri gör &rarr;</em></a>
+      <a class="oc" href="reklam/"><b>Reklam kurulumu ve görselleri</b><span>Meta, Google, TikTok kurulumu; reklam görseli ve videosu.</span><em>İşleri gör &rarr;</em></a>
+    </div>
   </section>
 
   <div class="filtre" id="siteler">
