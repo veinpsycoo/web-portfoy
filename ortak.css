@@ -32,7 +32,7 @@ img,video{display:block;max-width:100%}
 .grup{display:flex;align-items:baseline;gap:12px;margin:44px 0 6px;flex-wrap:wrap}
 .grup h2{margin:0;font-size:clamp(22px,3vw,28px);letter-spacing:-.025em;line-height:1.2}
 .grup span{color:var(--ink3);font-size:14px}
-.galeri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:14px 0}
+.galeri{align-items:start;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:14px 0}
 .galeri.dar{grid-template-columns:repeat(4,minmax(0,1fr))}
 .kart{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
 .kart .im{all:unset;display:block;cursor:zoom-in;background:var(--bg2);position:relative}
