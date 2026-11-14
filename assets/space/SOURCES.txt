@@ -1,3 +1,4 @@
 Earth texture: Three.js r170 examples/textures/planets/earth_atmos_2048.jpg (NASA Earth imagery).
 https://github.com/mrdoob/three.js/tree/r170/examples/textures/planets
 Reference direction: Zajno Educational Website on Space Pollution, Dribbble 25860515. No reference footage or source code embedded.
+High-resolution daytime texture: https://cdn.jsdelivr.net/gh/mrdoob/three.js@r170/examples/textures/planets/earth_day_4096.jpg
