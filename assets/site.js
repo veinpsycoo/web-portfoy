@@ -6,7 +6,7 @@ document.documentElement.classList.add('js');
  nav?.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu();});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav?.classList.contains('open')){closeMenu();menu.focus();}});
  document.addEventListener('click',e=>{if(!e.target.closest('.site-header'))closeMenu();});
- matchMedia('(min-width:901px)').addEventListener('change',closeMenu);
+ matchMedia('(min-width:1251px)').addEventListener('change',closeMenu);
  nav?.querySelectorAll('a').forEach(a=>{if(new URL(a.href).pathname===location.pathname&&!a.hash)a.setAttribute('aria-current','page');});
  const archive=document.querySelector('#own-projects'),clients=document.querySelector('#client-projects'),note=document.querySelector('#filter-note');
  document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{
