@@ -1,4 +1,7 @@
 window.SITELER = [
+  {"id": "fondip", "ad": "Fondip", "url": "https://fondip.com", "tur": "musteri", "sektor": "İçerik platformu", "platform": "Özel yazılım", "aciklama": "Kaynak bağlantılı kayıtları listeleyen, arama ve kullanıcı bildirimlerini yönetim incelemesiyle işleyen içerik sitesi."},
+  {"id": "mt2forum", "ad": "MT2Forum", "url": "https://mt2forum.net", "tur": "kendi", "sektor": "İçerik platformu", "platform": "XenForo", "aciklama": "Metin2 oyuncuları için topluluk forumu; kategori düzeni, mobil arayüz ve rehber içerikleri."},
+  {"id": "yorumcepte", "ad": "YorumCepte", "url": "https://yorumcepte.com", "tur": "kendi", "sektor": "Geri bildirim", "platform": "Web uygulaması", "aciklama": "İşletmeler için QR kodlu geri bildirim ve yorum yönlendirme hizmetinin tanıtım sitesi."},
   {id:"veronika", ad:"Veronika", url:"https://veronika.com.tr", tur:"musteri", sektor:"İç giyim", platform:"Shopify", aciklama:"İç giyim markası için kurulan Shopify mağazası: ürün girişi, sayfalar ve Türkçe arayüz."},
   {id:"maisonhevia", ad:"Maison Hevia", url:"https://maisonhevia.com", tur:"musteri", sektor:"Ev dekorasyonu", platform:"Shopify", aciklama:"Dekorasyon ürünleri satan mağaza için Shopify tema kurulumu ve düzenlemesi."},
   {id:"bkjpower", ad:"BKJ Power", url:"https://bkjpower.com.tr", tur:"musteri", sektor:"Jeneratör", platform:"WordPress", aciklama:"Jeneratör firması için ürün ve servis sayfaları olan kurumsal WordPress sitesi."},

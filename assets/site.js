@@ -12,7 +12,7 @@ document.documentElement.classList.add('js');
  document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{
   const f=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
   clients.hidden=f==='kendi';archive.hidden=f==='musteri';archive.open=f==='kendi';
-  note.textContent=f==='kendi'?'23 kişisel proje':f==='musteri'?'7 müşteri projesi':'Önce müşteri projeleri';
+  note.textContent=f==='kendi'?archive.querySelectorAll('.project').length+' kişisel proje':f==='musteri'?clients.querySelectorAll('.project').length+' müşteri projesi':'Önce müşteri projeleri';
  }));
  document.querySelectorAll('[data-video-filter]').forEach(b=>b.addEventListener('click',()=>{
   const f=b.dataset.videoFilter;document.querySelectorAll('[data-video-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
