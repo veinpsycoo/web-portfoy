@@ -1,5 +1,6 @@
 import * as THREE from './vendor/three.module.js';
 const host=document.getElementById('scene'),canvas=document.getElementById('universe'),story=document.getElementById('evren');
+const focusRoot=document.querySelector('.project-focus'),focusCards=[...document.querySelectorAll('.focus-project')];
 const labels=[...document.querySelectorAll('.satellite')],title=document.querySelector('.orbital-copy h1'),description=document.querySelector('.orbit-description');
 const clamp=v=>Math.max(0,Math.min(1,v));
 const smooth=(a,b,x)=>{const t=clamp((x-a)/(b-a));return t*t*(3-2*t);};
@@ -52,7 +53,9 @@ try{
  function readProgress(){target=off?0:clamp(-story.getBoundingClientRect().top/Math.max(1,story.offsetHeight-host.clientHeight));}
  function resize(){const w=host.clientWidth,h=host.clientHeight;mobile=w<700;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();readProgress();draw();}
  function draw(){
-  const p=off?.84:progress,w=host.clientWidth,h=host.clientHeight;
+  const raw=off?0:progress,p=off?.84:raw<.55?raw/.55*.84:raw<.95?.84:lerp(.84,1,(raw-.95)/.05),w=host.clientWidth,h=host.clientHeight;
+  const focusStrength=focusCards.map((_,i)=>{const t=(raw-(.55+i*.1))/.1;return off?0:smooth(0,.2,t)*(1-smooth(.8,1,t));}),front=Math.max(...focusStrength);
+  canvas.style.opacity=String(1-front*.6);
   const reveal=smooth(0,.12,p),approach=smooth(.12,.25,p),retreat=smooth(.25,.46,p),launch=smooth(.46,.82,p),exit=smooth(.88,1,p);
   const base=Math.min(1,camera.aspect*1.15),zoom=1+approach*1.2-retreat*1.38-exit*.25;
   world.scale.setScalar(base*zoom);world.position.set((approach*1.35-retreat*1.35+launch*.15)*base,.7-approach*2.9+retreat*2.9+exit*.15,0);
@@ -72,20 +75,26 @@ try{
    labelPoint.set(lerp((i%2===0?-.25:.25),place[0],emerge)+Math.sin(time*.18+i)*.055,lerp(.1,place[1],emerge)+Math.sin(travel*Math.PI)*.38,lerp(-1.9,place[2],emerge));
    world.localToWorld(labelPoint);direction.copy(labelPoint).sub(camera.position);const distance=direction.length();ray.set(camera.position,direction.normalize());const blocked=ray.intersectSphere(sphere,hit)&&camera.position.distanceTo(hit)<distance-.035;
    projected.copy(labelPoint).project(camera);const size=label.offsetWidth,scale=lerp(.25,1,emerge),x=Math.max(w*.035,Math.min(w*.965-size,(projected.x*.5+.5)*w-size/2)),y=Math.max(h*.16,Math.min(h*.59-size,(-projected.y*.5+.5)*h-size/2));
-   const opacity=emerge*(blocked?0:1)*(1-exit*.45);label.style.transform=`translate3d(${x}px,${y}px,0) scale(${scale})`;label.style.opacity=opacity;label.style.visibility=opacity>.12?'visible':'hidden';label.inert=opacity<=.12;label.dataset.depth=blocked?'behind':'front';
+   const opacity=emerge*(blocked?0:1)*(1-exit*.45)*(1-front*.7);label.style.transform=`translate3d(${x}px,${y}px,0) scale(${scale})`;label.style.opacity=opacity;label.style.visibility=opacity>.12?'visible':'hidden';label.inert=opacity<=.12;label.dataset.depth=blocked?'behind':'front';
    oAnchor(i);const ax=(anchor.x*.5+.5)*w,ay=(-anchor.y*.5+.5)*h,ex=x+size/2,ey=y-7;
    paths[i].setAttribute('d',`M${ax} ${ay} Q${ex} ${ay} ${ex} ${ey} M${ex-3} ${ey-5} L${ex} ${ey} L${ex+3} ${ey-5}`);paths[i].style.opacity=opacity*.75;
    painted.push([Math.round(x),Math.round(y),+scale.toFixed(2),+opacity.toFixed(2)]);
   });
+  const focusRect=focusRoot.getBoundingClientRect();
+  focusCards.forEach((card,i)=>{
+   const strength=focusStrength[i],thumb=painted[i],dx=(thumb[0]+labels[i].offsetWidth/2-(focusRect.left+focusRect.width/2))*(1-strength),dy=(thumb[1]+labels[i].offsetHeight/2-(focusRect.top+focusRect.height/2))*(1-strength);
+   card.style.transform=`translate3d(${dx}px,calc(-50% + ${dy}px),0) scale(${lerp(.15,1,strength)})`;card.style.opacity=String(smooth(0,.35,strength));card.style.visibility=strength>.01?'visible':'hidden';card.inert=strength<.65;card.dataset.expansion=strength.toFixed(3);
+  });
+  focusRoot.dataset.active=String(focusStrength.findIndex(v=>v>.5));
   function oAnchor(i){orbits[i].dot.getWorldPosition(anchor);anchor.project(camera);}
   const grid=1-smooth(.08,.18,p)+smooth(.4,.49,p);story.style.setProperty('--grid-opacity',String(clamp(grid)));
-  const copyOpacity=1-smooth(.13,.21,p)+smooth(.35,.45,p);story.style.setProperty('--copy-opacity',String(clamp(copyOpacity)));copyElement.inert=copyOpacity<.15;story.style.setProperty('--chart-opacity',String(clamp(1-smooth(.08,.18,p)+smooth(.36,.46,p))));story.style.setProperty('--chart-shift',String((1-retreat)*28));story.style.setProperty('--journey',String(p));
-  const graph=[86,80,68,62,40,35,22,16,5],n=Math.min(7,Math.floor(p*8)),mix=p*8-n;chartDot.setAttribute('cx',String(p*1000));chartDot.setAttribute('cy',String(lerp(graph[n],graph[n+1],mix)));counter.textContent=String(Math.round(p*100)).padStart(3,'0');
+  const copyOpacity=(1-smooth(.13,.21,p)+smooth(.35,.45,p))*(1-front);story.style.setProperty('--copy-opacity',String(clamp(copyOpacity)));copyElement.inert=copyOpacity<.15;story.style.setProperty('--chart-opacity',String(clamp(1-smooth(.08,.18,p)+smooth(.36,.46,p))));story.style.setProperty('--chart-shift','0');story.style.setProperty('--journey',String(raw));
+  const graph=[86,80,68,62,40,35,22,16,5],n=Math.min(7,Math.floor(raw*8)),mix=raw*8-n;chartDot.setAttribute('cx',String(raw*1000));chartDot.setAttribute('cy',String(lerp(graph[n],graph[n+1],mix)));counter.textContent=String(Math.round(raw*100)).padStart(3,'0');
   const next=p<.12?0:p<.4?1:p<.59?2:p<.9?3:4;
   if(next!==stage){stage=next;title.textContent=copy[stage][0];description.textContent=copy[stage][1];status.textContent=['01 / KOORDİNATLAR','02 / YAKLAŞMA','03 / YÖRÜNGEYE ÇIKIŞ','04 / PROJELER','05 / KEŞFET'][stage];}
-  host.dataset.progress=(off?0:p).toFixed(3);host.dataset.renderer='webgl';
+  host.dataset.progress=raw.toFixed(3);host.dataset.renderer='webgl';
   // Record painted geometry, not merely scroll input, for motion regression tests.
-  host.dataset.pose=JSON.stringify({zoom:+zoom.toFixed(3),rotation:+earth.rotation.y.toFixed(3),y:+world.position.y.toFixed(3),cards:painted});
+  host.dataset.pose=JSON.stringify({zoom:+zoom.toFixed(3),rotation:+earth.rotation.y.toFixed(3),y:+world.position.y.toFixed(3),cards:painted,foreground:focusStrength.map(v=>+v.toFixed(3))});
  }
  function animate(now){frame=0;if(off||!visible||document.hidden)return;const dt=Math.min((now-last)/1000,.05);last=now;if(!focused)time+=dt;progress+=(target-progress)*(1-Math.exp(-dt*10));draw();frame=requestAnimationFrame(animate);}
  function start(){if(!frame&&!off&&visible&&!document.hidden){last=performance.now();frame=requestAnimationFrame(animate);}}
