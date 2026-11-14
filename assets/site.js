@@ -19,20 +19,14 @@ document.documentElement.classList.add('js');
   document.querySelectorAll('[data-video-kind]').forEach(c=>{c.hidden=f!=='all'&&!c.dataset.videoKind.split(' ').includes(f);if(c.hidden)c.querySelector('video').pause();});
  }));
  document.querySelectorAll('video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('video').forEach(x=>{if(x!==v)x.pause();})));
- const motion=document.querySelector('#motion-toggle'),reduce=matchMedia('(prefers-reduced-motion:reduce)');
- let preference=null;
- try { const stored=localStorage.getItem('mc-motion');if(stored==='on'||stored==='off')preference=stored; } catch {}
+ const motion=document.querySelector('#motion-toggle');
  function setMotion(off){
   document.documentElement.dataset.motion=off?'off':'on';
   motion?.setAttribute('aria-pressed',String(off));
-  if(motion)motion.textContent=off?'3D deneyimi başlat ▷':'Hareketi durdur Ⅱ';
+  if(motion)motion.textContent=off?'Hareketi sürdür ▷':'Hareketi durdur Ⅱ';
   document.dispatchEvent(new CustomEvent('motionchange',{detail:off}));
  }
- setMotion(preference?preference==='off':reduce.matches);
- motion?.addEventListener('click',()=>{
-  preference=document.documentElement.dataset.motion==='off'?'on':'off';
-  try {localStorage.setItem('mc-motion',preference);} catch {}
-  setMotion(preference==='off');
- });
- reduce.addEventListener('change',e=>{if(preference===null)setMotion(e.matches);});
+ // Start immediately on every visit; pause remains an explicit in-page control.
+ setMotion(false);
+ motion?.addEventListener('click',()=>setMotion(document.documentElement.dataset.motion!=='off'));
 })();
