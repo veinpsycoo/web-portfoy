@@ -29,12 +29,12 @@ try{
  }
  const orbitGroup=new THREE.Group();world.add(orbitGroup);const orbits=[];
  const orange=new THREE.MeshBasicMaterial({color:0xec8e3d});
- for(let i=0;i<4;i++){
-  const pivot=new THREE.Group();pivot.rotation.set(1.16+i*.21,.08+i*.12,-.27+i*.2);orbitGroup.add(pivot);
-  const points=[];for(let j=0;j<=180;j++){const a=j/180*Math.PI*1.9;points.push(new THREE.Vector3(Math.cos(a)*(2.5+i*.08),Math.sin(a)*(2.5+i*.08),0));}
+ for(let i=0;i<labels.length;i++){
+  const pivot=new THREE.Group();pivot.rotation.set(.7+(i%5)*.24,i*2.399,-.5+(i%7)*.16);orbitGroup.add(pivot);
+  const points=[];for(let j=0;j<=180;j++){const a=j/180*Math.PI*1.9;points.push(new THREE.Vector3(Math.cos(a)*(2.3+(i%5)*.14),Math.sin(a)*(2.3+(i%5)*.14),0));}
   const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),new THREE.LineBasicMaterial({color:i===0?0xe28c37:0x9a7770,transparent:true,opacity:0}));pivot.add(line);
   const dot=new THREE.Mesh(new THREE.SphereGeometry(.018,8,8),orange),arrow=new THREE.Mesh(new THREE.ConeGeometry(.013,.06,5),orange);pivot.add(dot,arrow);
-  orbits.push({pivot,line,dot,arrow,radius:2.5+i*.08,phase:[2.55,.3,3.7,5.7][i]});
+  orbits.push({pivot,line,dot,arrow,radius:2.3+(i%5)*.14,phase:i*2.399});
  }
  let seed=41;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
  const dustCount=1600,dustBase=new Float32Array(dustCount*3),dustPositions=new Float32Array(dustCount*3);
@@ -47,13 +47,29 @@ try{
  let off=document.documentElement.dataset.motion==='off',visible=true,mobile=false,mx=0,my=0,time=0,frame=0,last=0,progress=0,target=0,stage=-1,focused=false;
  const stageElement=host.parentElement,ns='http://www.w3.org/2000/svg',leaders=document.createElementNS(ns,'svg');leaders.setAttribute('class','orbit-leaders');leaders.setAttribute('aria-hidden','true');stageElement.insertBefore(leaders,document.querySelector('.satellites'));
  const paths=labels.map(()=>{const path=document.createElementNS(ns,'path');leaders.appendChild(path);return path;});
- const projected=new THREE.Vector3(),anchor=new THREE.Vector3(),center=new THREE.Vector3(),labelPoint=new THREE.Vector3(),hit=new THREE.Vector3(),direction=new THREE.Vector3(),ray=new THREE.Ray(),sphere=new THREE.Sphere();
- const placements=[[-2.65,.9,.6],[2.55,.8,.5],[-2.6,-.75,1.0],[2.65,-.7,.8]];
+ const anchor=new THREE.Vector3();
+ const gallery=JSON.parse(document.getElementById("orbit-data").textContent);let slots=[],cardSize=112,capacity=20;
  const projects=JSON.parse(document.getElementById('timeline-data').textContent),bubble=document.getElementById('timeline-bubble'),timelineRange=document.getElementById('timeline-range'),countLabel=document.getElementById('project-count');
  const bubbleName=document.getElementById('timeline-name'),bubbleNumber=document.getElementById('timeline-number'),bubbleCategory=document.getElementById('timeline-category');let selectedProject=-1;
  const chartDot=document.getElementById('chart-dot'),counter=document.getElementById('orbit-progress'),status=document.getElementById('orbit-status');
  function readProgress(){target=clamp(-story.getBoundingClientRect().top/Math.max(1,story.offsetHeight-host.clientHeight));}
- function resize(){const w=host.clientWidth,h=host.clientHeight;mobile=w<700;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();readProgress();draw();}
+ function resize(){
+  const w=host.clientWidth,h=host.clientHeight;mobile=w<700;
+  capacity=mobile?4:w>=1100&&h>=880?20:8;
+  const top=mobile?(h<700?132:145):130,bottom=document.querySelector('.orbital-timeline').offsetTop-12;
+  cardSize=mobile?(h<700?64:76):capacity===20?Math.min(112,Math.floor((bottom-top)/4)-26):100;
+  stageElement.style.setProperty('--satellite-size',cardSize+'px');
+  const left=mobile?16:28,right=w-left-cardSize,lastY=bottom-cardSize-24;
+  slots=[];
+  if(capacity===20){
+   for(let row=0;row<4;row++){
+    const y=lerp(top,lastY,row/3),xs=row===0||row===3?Array.from({length:6},(_,j)=>lerp(left,right,j/5)):[left,left+cardSize+20,right-cardSize-20,right];
+    xs.forEach(x=>slots.push([x,y]));
+   }
+  }else if(capacity===8){for(const y of [top,lastY])for(let j=0;j<4;j++)slots.push([lerp(left,right,j/3),y]);}
+  else{for(const y of [top,Math.max(top+cardSize+30,lastY)])for(const x of [left,right])slots.push([x,y]);}
+  renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();readProgress();draw();
+ }
  function draw(){
   const raw=progress,p=raw<.55?raw/.55*.84:raw<.95?.84:lerp(.84,1,(raw-.95)/.05),w=host.clientWidth,h=host.clientHeight;
   const focusStrength=focusCards.map((_,i)=>{const t=(raw-(.55+i*.1))/.1;return smooth(0,.2,t)*(1-smooth(.8,1,t));}),front=Math.max(...focusStrength);
@@ -65,23 +81,30 @@ try{
   earth.rotation.y=4.2+time*.12+p*.18;clouds.rotation.y=earth.rotation.y+time*.007;earthMaterial.opacity=1;clouds.material.opacity=(.3+reveal*.56)*(1-exit*.2);
   cage.rotation.set(.12+p*.2,p*.8+time*.07,.1);cage.scale.setScalar(1+exit*.55);cageMaterial.opacity=(1-reveal)*.7+exit*.6;
   orbitGroup.rotation.y=launch*.35+Math.sin(time*.12)*.06;orbitGroup.rotation.z=-launch*.1;
-  orbits.forEach((o,i)=>{const start=.44+i*.055,show=smooth(start,start+.11,p);o.line.material.opacity=show*(i===0?.82:.4)*(1-exit*.4);o.line.geometry.setDrawRange(0,Math.max(2,Math.round(181*show)));const a=o.phase+time*.07+launch*.32;o.dot.position.set(Math.cos(a)*o.radius,Math.sin(a)*o.radius,0);o.arrow.position.set(Math.cos(a+.045)*o.radius,Math.sin(a+.045)*o.radius,0);o.arrow.rotation.z=a+.045;o.dot.visible=o.arrow.visible=show>.08;});
+  orbits.forEach((o,i)=>{const start=.39+i*.007,show=smooth(start,start+.12,p);o.line.material.opacity=show*(i%5===0?.55:mobile?.12:.23)*(1-exit*.4);o.line.geometry.setDrawRange(0,Math.max(2,Math.round(181*show)));const a=o.phase+time*.07+launch*.32;o.dot.position.set(Math.cos(a)*o.radius,Math.sin(a)*o.radius,0);o.arrow.position.set(Math.cos(a+.045)*o.radius,Math.sin(a+.045)*o.radius,0);o.arrow.rotation.z=a+.045;o.dot.visible=o.arrow.visible=show>.08;});
   const spread=smooth(.82,.99,p);
   for(let i=0;i<dustCount;i++){const expansion=1+spread*(2+(i%9)*.28);for(let axis=0;axis<3;axis++)dustPositions[i*3+axis]=dustBase[i*3+axis]*expansion;}
   dustGeo.attributes.position.needsUpdate=true;dust.rotation.y=time*.055+p*.5;dust.material.opacity=.16+launch*.36-spread*.22;stars.rotation.y=p*.1+mx*.008;
   camera.position.x=mx*.07;camera.position.y=my*.04;renderer.render(scene,camera);
-  world.getWorldPosition(center);sphere.set(center,1.35*world.scale.x);leaders.setAttribute('viewBox',`0 0 ${w} ${h}`);
+  leaders.setAttribute('viewBox',`0 0 ${w} ${h}`);
+  const pageCount=Math.ceil(gallery.length/capacity),batch=raw>=.55?0:Math.min(pageCount-1,Math.floor(clamp((raw-.32)/.22)*pageCount));
   const painted=[];
   labels.forEach((label,i)=>{
-   const emerge=smooth(.48+i*.065,.61+i*.065,p),travel=smooth(.48+i*.065,.78+i*.055,p),place=placements[i];
-   labelPoint.set(lerp((i%2===0?-.25:.25),place[0],emerge)+Math.sin(time*.18+i)*.055,lerp(.1,place[1],emerge)+Math.sin(travel*Math.PI)*.38,lerp(-1.9,place[2],emerge));
-   world.localToWorld(labelPoint);direction.copy(labelPoint).sub(camera.position);const distance=direction.length();ray.set(camera.position,direction.normalize());const blocked=ray.intersectSphere(sphere,hit)&&camera.position.distanceTo(hit)<distance-.035;
-   projected.copy(labelPoint).project(camera);const size=label.offsetWidth,scale=lerp(.25,1,emerge),x=Math.max(w*.035,Math.min(w*.965-size,(projected.x*.5+.5)*w-size/2)),y=Math.max(h*.16,Math.min(h*.59-size,(-projected.y*.5+.5)*h-size/2));
-   const opacity=emerge*(blocked?0:1)*(1-exit*.45)*(1-front*.7);label.style.transform=`translate3d(${x}px,${y}px,0) scale(${scale})`;label.style.opacity=opacity;label.style.visibility=opacity>.12?'visible':'hidden';label.inert=opacity<=.12;label.dataset.depth=blocked?'behind':'front';
-   oAnchor(i);const ax=(anchor.x*.5+.5)*w,ay=(-anchor.y*.5+.5)*h,ex=x+size/2,ey=y-7;
-   paths[i].setAttribute('d',`M${ax} ${ay} Q${ex} ${ay} ${ex} ${ey} M${ex-3} ${ey-5} L${ex} ${ey} L${ex+3} ${ey-5}`);paths[i].style.opacity=opacity*.75;
+   const slot=slots[i%capacity],index=(batch*capacity+i)%gallery.length,project=gallery[index];
+   if(i<capacity&&label.dataset.project!==String(index)){
+    label.dataset.project=String(index);label.href=project.url;label.target=project.url.startsWith('https:')?'_blank':'_self';label.title=project.name;label.setAttribute('aria-label',project.name+' — projeyi aç');
+    const img=label.querySelector('img');img.src=project.image;img.alt=project.name+' proje görseli';label.querySelector('span').textContent=project.name+' ↗';
+   }
+   const emerge=smooth(.4+i*.003,.49+i*.003,p),travel=smooth(.4,.56,p);
+   oAnchor(i);const ax=(anchor.x*.5+.5)*w,ay=(-anchor.y*.5+.5)*h;
+   const x=lerp(w/2-cardSize/2,slot[0]+Math.sin(time*.35+i)*2,travel),y=lerp(h*.34,slot[1]+Math.cos(time*.3+i)*(mobile?.5:2),travel),scale=lerp(.15,1,travel);
+   const opacity=(i<capacity?emerge:0)*(1-exit*.6)*(1-front*.82);
+   label.style.transform=`translate3d(${x}px,${y}px,0) scale(${scale})`;label.style.opacity=opacity;label.style.visibility=opacity>.12?'visible':'hidden';label.inert=opacity<=.12;label.dataset.depth='front';
+   const ex=x+cardSize/2,ey=y+cardSize/2,angle=Math.atan2(ey-ay,ex-ax),tipX=ex-Math.cos(angle)*(cardSize/2+8),tipY=ey-Math.sin(angle)*(cardSize/2+8);
+   paths[i].setAttribute('d',`M${ax} ${ay} Q${w/2} ${ay} ${tipX} ${tipY} M${tipX-Math.cos(angle-.5)*8} ${tipY-Math.sin(angle-.5)*8} L${tipX} ${tipY} L${tipX-Math.cos(angle+.5)*8} ${tipY-Math.sin(angle+.5)*8}`);paths[i].style.opacity=opacity*.8;
    painted.push([Math.round(x),Math.round(y),+scale.toFixed(2),+opacity.toFixed(2)]);
   });
+  host.dataset.orbitCount=String(orbits.length);host.dataset.galleryPage=String(batch);host.dataset.galleryCapacity=String(capacity);
   const focusRect=focusRoot.getBoundingClientRect();
   focusCards.forEach((card,i)=>{
    const strength=focusStrength[i],thumb=painted[i],dx=(thumb[0]+labels[i].offsetWidth/2-(focusRect.left+focusRect.width/2))*(1-strength),dy=(thumb[1]+labels[i].offsetHeight/2-(focusRect.top+focusRect.height/2))*(1-strength);
@@ -113,10 +136,11 @@ try{
  stageElement.addEventListener('pointermove',e=>{if(off||reduced.matches||e.pointerType==='touch')return;mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;});stageElement.addEventListener('pointerleave',()=>{mx=my=0;});
  labels.forEach(label=>{label.addEventListener('pointerenter',()=>focused=true);label.addEventListener('pointerleave',()=>focused=false);label.addEventListener('focus',()=>focused=true);label.addEventListener('blur',()=>focused=false);});
  document.addEventListener('motionchange',e=>{off=e.detail;if(off){stop();draw();}else{readProgress();start();}});
- const stops=[0,.12,.25,.4,.55,.6,.7,.8,.9,1];
+ function stops(){const pages=Math.ceil(gallery.length/capacity);return [0,.12,.25,...Array.from({length:pages},(_,i)=>.32+(i+.5)*.22/pages),.55,.6,.7,.8,.9,1];}
+ // Allow the small scroll adjustment caused by focusing a sticky navigation button.
  function navigateTo(value){if(off)document.getElementById('motion-toggle').click();window.scrollTo({top:story.offsetTop+value*(story.offsetHeight-host.clientHeight),behavior:reduced.matches?'instant':'smooth'});}
- document.getElementById('orbit-next').addEventListener('click',()=>navigateTo(stops.find(v=>v>target+.015)??1));
- document.getElementById('orbit-prev').addEventListener('click',()=>navigateTo([...stops].reverse().find(v=>v<target-.015)??0));
+ document.getElementById('orbit-next').addEventListener('click',()=>navigateTo(stops().find(v=>v>target+.01)??1));
+ document.getElementById('orbit-prev').addEventListener('click',()=>navigateTo(stops().reverse().find(v=>v<target-.01)??0));
  timelineRange.addEventListener('input',()=>{const value=Number(timelineRange.value);navigateTo(value===0?0:value===projects.length?1:(value-.5)/projects.length);});
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();else start();});
  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();stop();fallback();});
