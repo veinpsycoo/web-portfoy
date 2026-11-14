@@ -1,7 +1,7 @@
 import * as THREE from './vendor/three.module.js';
 const host=document.getElementById('scene'),canvas=document.getElementById('universe'),story=document.getElementById('evren');
 const focusRoot=document.querySelector('.project-focus'),focusCards=[...document.querySelectorAll('.focus-project')];
-const labels=[...document.querySelectorAll('.satellite')],title=document.querySelector('.orbital-copy h1'),description=document.querySelector('.orbit-description');
+const labels=[...document.querySelectorAll('.satellite')];
 const clamp=v=>Math.max(0,Math.min(1,v));
 const smooth=(a,b,x)=>{const t=clamp((x-a)/(b-a));return t*t*(3-2*t);};
 const lerp=(a,b,t)=>a+(b-a)*t;
@@ -45,10 +45,9 @@ try{
  const stars=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.Float32BufferAttribute(positions,3)),new THREE.PointsMaterial({size:.008,color:0x6d807c,transparent:true,opacity:.5}));scene.add(stars);
  const reduced=matchMedia('(prefers-reduced-motion:reduce)');
  let off=document.documentElement.dataset.motion==='off',visible=true,mobile=false,mx=0,my=0,time=0,frame=0,last=0,progress=0,target=0,stage=-1,focused=false;
- const copyElement=document.querySelector('.orbital-copy'),stageElement=host.parentElement,ns='http://www.w3.org/2000/svg',leaders=document.createElementNS(ns,'svg');leaders.setAttribute('class','orbit-leaders');leaders.setAttribute('aria-hidden','true');stageElement.insertBefore(leaders,document.querySelector('.satellites'));
+ const stageElement=host.parentElement,ns='http://www.w3.org/2000/svg',leaders=document.createElementNS(ns,'svg');leaders.setAttribute('class','orbit-leaders');leaders.setAttribute('aria-hidden','true');stageElement.insertBefore(leaders,document.querySelector('.satellites'));
  const paths=labels.map(()=>{const path=document.createElementNS(ns,'path');leaders.appendChild(path);return path;});
  const projected=new THREE.Vector3(),anchor=new THREE.Vector3(),center=new THREE.Vector3(),labelPoint=new THREE.Vector3(),hit=new THREE.Vector3(),direction=new THREE.Vector3(),ray=new THREE.Ray(),sphere=new THREE.Sphere();
- const copy=[['Dijital bir dünya.','Web siteleri, botlar, oyunlar ve uygulamalar geliştiriyorum.'],['YAKINDAN BAK.','Her detay bir fikrin parçası. Kaydırmaya devam et; bu dünyanın içindeki projeleri keşfet.'],['FİKİRDEN YAYINA.','Bir web sitesi, bir marka, yeni bir başlangıç. Gerçek projeler kendi yörüngelerine çıkıyor.'],['PROJELERİN YÖRÜNGESİ.','Kare görsellere dokunarak canlı siteleri açabilirsin. Her biri tasarımdan yayına uzanan ayrı bir çalışma.'],['ŞİMDİ, İŞLERE BAKALIM.','Web siteleri önce. Oyunlar, botlar, uygulamalar ve video çalışmalarım kendi bölümlerinde.']];
  const placements=[[-2.65,.9,.6],[2.55,.8,.5],[-2.6,-.75,1.0],[2.65,-.7,.8]];
  const projects=JSON.parse(document.getElementById('timeline-data').textContent),bubble=document.getElementById('timeline-bubble'),timelineRange=document.getElementById('timeline-range'),countLabel=document.getElementById('project-count');
  const bubbleName=document.getElementById('timeline-name'),bubbleNumber=document.getElementById('timeline-number'),bubbleCategory=document.getElementById('timeline-category');let selectedProject=-1;
@@ -63,7 +62,7 @@ try{
   const base=Math.min(1,camera.aspect*1.15),zoom=1+approach*1.2-retreat*1.38-exit*.25;
   world.scale.setScalar(base*zoom);world.position.set((approach*1.35-retreat*1.35+launch*.15)*base,.7-approach*2.9+retreat*2.9+exit*.15,0);
   world.rotation.set(my*.025,mx*.035,0);earthGroup.rotation.z=-.18+retreat*.08;
-  earth.rotation.y=4.2+time*.022+p*.18;clouds.rotation.y=earth.rotation.y+time*.007;earthMaterial.opacity=.42+reveal*.58;clouds.material.opacity=(.3+reveal*.56)*(1-exit*.2);
+  earth.rotation.y=4.2+time*.12+p*.18;clouds.rotation.y=earth.rotation.y+time*.007;earthMaterial.opacity=1;clouds.material.opacity=(.3+reveal*.56)*(1-exit*.2);
   cage.rotation.set(.12+p*.2,p*.8+time*.07,.1);cage.scale.setScalar(1+exit*.55);cageMaterial.opacity=(1-reveal)*.7+exit*.6;
   orbitGroup.rotation.y=launch*.35+Math.sin(time*.12)*.06;orbitGroup.rotation.z=-launch*.1;
   orbits.forEach((o,i)=>{const start=.44+i*.055,show=smooth(start,start+.11,p);o.line.material.opacity=show*(i===0?.82:.4)*(1-exit*.4);o.line.geometry.setDrawRange(0,Math.max(2,Math.round(181*show)));const a=o.phase+time*.07+launch*.32;o.dot.position.set(Math.cos(a)*o.radius,Math.sin(a)*o.radius,0);o.arrow.position.set(Math.cos(a+.045)*o.radius,Math.sin(a+.045)*o.radius,0);o.arrow.rotation.z=a+.045;o.dot.visible=o.arrow.visible=show>.08;});
@@ -91,7 +90,7 @@ try{
   focusRoot.dataset.active=String(focusStrength.findIndex(v=>v>.5));
   function oAnchor(i){orbits[i].dot.getWorldPosition(anchor);anchor.project(camera);}
   const grid=1-smooth(.08,.18,p)+smooth(.4,.49,p);story.style.setProperty('--grid-opacity',String(clamp(grid)));
-  const copyOpacity=(1-smooth(.13,.21,p)+smooth(.35,.45,p))*(1-front);story.style.setProperty('--copy-opacity',String(clamp(copyOpacity)));copyElement.inert=copyOpacity<.15;story.style.setProperty('--chart-opacity',String(clamp(1-smooth(.08,.18,p)+smooth(.36,.46,p))));story.style.setProperty('--chart-shift','0');story.style.setProperty('--journey',String(raw));
+  story.style.setProperty('--chart-opacity',String(clamp(1-smooth(.08,.18,p)+smooth(.36,.46,p))));story.style.setProperty('--chart-shift','0');story.style.setProperty('--journey',String(raw));
   const graph=[86,80,68,62,40,35,22,16,5],n=Math.min(7,Math.floor(raw*8)),mix=raw*8-n;chartDot.setAttribute('cx',String(raw*1000));chartDot.setAttribute('cy',String(lerp(graph[n],graph[n+1],mix)));counter.textContent=String(Math.round(raw*100)).padStart(3,'0');
   const projectNumber=raw<=.00001?0:Math.min(projects.length,Math.floor(raw*projects.length)+1);
   if(projectNumber!==selectedProject){
@@ -101,12 +100,12 @@ try{
   const plot=bubble.parentElement,left=Math.max(0,Math.min(plot.clientWidth-bubble.offsetWidth,raw*plot.clientWidth-bubble.offsetWidth/2));bubble.style.left=left+'px';bubble.style.setProperty('--tip',Math.max(12,Math.min(bubble.offsetWidth-12,raw*plot.clientWidth-left))+'px');
 
   const next=p<.12?0:p<.4?1:p<.59?2:p<.9?3:4;
-  if(next!==stage){stage=next;title.textContent=copy[stage][0];description.textContent=copy[stage][1];status.textContent=['01 / KOORDİNATLAR','02 / YAKLAŞMA','03 / YÖRÜNGEYE ÇIKIŞ','04 / PROJELER','05 / KEŞFET'][stage];}
+  if(next!==stage){stage=next;status.textContent=['01 / KOORDİNATLAR','02 / YAKLAŞMA','03 / YÖRÜNGEYE ÇIKIŞ','04 / PROJELER','05 / KEŞFET'][stage];}
   host.dataset.progress=raw.toFixed(3);host.dataset.renderer='webgl';
   // Record painted geometry, not merely scroll input, for motion regression tests.
   host.dataset.pose=JSON.stringify({zoom:+zoom.toFixed(3),rotation:+earth.rotation.y.toFixed(3),y:+world.position.y.toFixed(3),cards:painted,foreground:focusStrength.map(v=>+v.toFixed(3))});
  }
- function animate(now){frame=0;if(off||!visible||document.hidden)return;const dt=Math.min((now-last)/1000,.05);last=now;if(!focused&&!reduced.matches)time+=dt;const previous=progress;progress=reduced.matches?target:progress+(target-progress)*(1-Math.exp(-dt*10));if(!reduced.matches||previous!==progress)draw();frame=requestAnimationFrame(animate);}
+ function animate(now){frame=0;if(off||!visible||document.hidden)return;const dt=Math.min((now-last)/1000,.05);last=now;if(!focused)time+=dt;progress=reduced.matches?target:progress+(target-progress)*(1-Math.exp(-dt*10));draw();frame=requestAnimationFrame(animate);}
  function start(){if(!frame&&!off&&visible&&!document.hidden){last=performance.now();frame=requestAnimationFrame(animate);}}
  function stop(){cancelAnimationFrame(frame);frame=0;}
  new ResizeObserver(resize).observe(host);new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible){readProgress();start();}else stop();}).observe(host);
