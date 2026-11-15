@@ -1,0 +1,128 @@
+# Muhammet Çay
+
+> Ben Muhammet Çay; dijitalde Veinpsyco adını kullanıyorum. İşletmeler için web siteleri ve mağazalar hazırlıyor, özel yazılım ve otomasyon üzerinde çalışıyor, oyun ve görsel içerik projeleri geliştiriyorum. Müşteri işlerinin yanında kendi web ürünlerimi, e-ticaret mağazalarımı ve içerik sitelerimi yönetiyorum.
+
+Resmî kişisel portföy: https://muhammetcay.com/
+
+Bu sayfanın proje dizini 8 müşteri sitesi, 26 kendi site ve ürünü, 18 canlı yayın oyunu ve 1 müşteri mobil uygulaması çalışmasını bir araya getiriyor. Last War Botu hem web hem bot vitrininde görünse de burada bir kez sayılıyor. Video örnekleri, mağaza hesapları ve YouTube kanalları bu sayıya ayrıca eklenmiyor.
+
+Müşteri markaları ile Muhammet Çay’ın kendi projeleri aşağıda ayrı belirtilmiştir. Shopify, WordPress ve XenForo gibi kullanılan platformların sahibi veya geliştiricisi olduğu iddia edilmez.
+
+## Kimlik ve hizmetler
+
+- [Muhammet Çay kimdir?](https://muhammetcay.com/hakkimda/): Proje rolleri ve çalışma alanları.
+- [Hizmetler](https://muhammetcay.com/hizmetler/): Web tasarım, mağaza kurulumu, özel yazılım ve teknik SEO.
+- [İletişim](https://muhammetcay.com/iletisim/): Proje kapsamı için iletişim.
+
+## Kendi kurduğu ve yönettiği site ve ürünler
+
+- [SiteFabrika](https://websitefabrika.com): Kendi projem / Özel yazılım Yerel işletmelere web sitesi kurulumunu anlatan hizmet sitemiz.
+- [Danışan Defteri](https://danisandefteri.com): Kendi projem / Özel yazılım Psikolog ve diyetisyenler için randevu ve seans paketi takip uygulaması.
+- [KVKK Otomat](https://kvkkotomat.com): Kendi projem / Özel yazılım KOBİ'lerin KVKK ve VERBİS belgelerini hazırlamasına yardım eden web uygulaması.
+- [KlipFabrika](https://klipfabrika.com): Kendi projem / Özel yazılım Videodaki hareketi yeni karakterlere aktaran, nesne ve stil değiştiren Türkçe yapay zekâ video stüdyosu.
+- [HaritaSkoru](https://haritaskoru.com): Kendi projem / Özel yazılım Google Haritalar'da bir aramada hangi işletmelerin çıktığını gösteren analiz aracı.
+- [VitrinSkoru](https://vitrinskoru.com): Kendi projem / Özel yazılım Trendyol ve Hepsiburada ürün vitrinini değerlendiren analiz aracı.
+- [Marka Bekçisi](https://markabekcisi.com): Kendi projem / Özel yazılım Bir markayı pazaryerlerinde kimlerin sattığını izleyen takip aracı.
+- [NetROAS](https://netroas.app): Kendi projem / Özel yazılım Reklam harcamasını gerçek satış ve net kârla karşılaştıran panel.
+- [Last War Botu](https://lastwarbotu.com): Kendi projem / Özel yazılım Last War oyunu için Türkçe otomasyon programının tanıtım sitesi.
+- [Aikolejim](https://aikolejim.com): Kendi projem / Özel yazılım Yapay zekâ destekli birebir ders platformu.
+- [Esneyelim](https://esneyelim.app): Kendi projem / Özel yazılım Rehberli esneme rutinleri sunan web uygulaması.
+- [SepetZone](https://sepetzone.com): Kendi projem / Shopify Ev, araç ve günlük kullanım ürünleri için Shopify mağazası; ürün sayfaları, varyantlar ve sipariş akışları.
+- [ShedLoop](https://shedloop.com): Kendi projem / Shopify Kedi ve köpek tüy toplama eldiveni için tek ürünlü mağaza.
+- [Furbrook](https://furbrook.com): Kendi projem / Shopify Kedi ve köpek ürünleri satan Shopify mağazası.
+- [GameNPC3D](https://gamenpc3d.com): Kendi projem / Özel yazılım Oyun temalı 3D figür ve koleksiyon ürünleri satan e-ticaret sitesi.
+- [FUTCoinTR](https://futcointr.com): Kendi projem / WordPress FC oyun parası alım ve satımı için sipariş sitesi.
+- [EV Model Compare](https://evmodelcompare.com): Kendi projem / WordPress Elektrikli araçların menzil ve şarj bilgilerini karşılaştıran site.
+- [ZeroCarbonDrive](https://zerocarbondrive.com): Kendi projem / WordPress Elektrikli araç ve temiz enerji üzerine içerik sitesi.
+- [SolarSunLabs](https://solarsunlabs.com): Kendi projem / WordPress Güneş paneli, invertör ve enerji depolama üzerine rehber sitesi.
+- [ForkliftCompare](https://forkliftcompare.net): Kendi projem / WordPress Forklift teknik özelliklerini karşılaştıran katalog sitesi.
+- [Utility Cost Guide](https://utilitycostguide.com): Kendi projem / WordPress ABD'de altyapı bağlantı ücretlerini anlatan rehber sitesi.
+- [Trade Business Guide](https://tradebusinessguide.com): Kendi projem / WordPress Esnaf işletmeleri için maliyet, lisans ve hesaplayıcı içeren site.
+- [ViceLens](https://vicelens.com): Kendi projem / WordPress GTA 6 rehberleri, haberleri ve analizleri yayımlayan site.
+- [MT2Forum](https://mt2forum.net): Kendi projem / XenForo Metin2 oyuncuları için topluluk forumu; kategori düzeni, mobil arayüz ve rehber içerikleri.
+- [YorumCepte](https://yorumcepte.com): Kendi projem / Web uygulaması İşletmeler için QR kodlu geri bildirim ve yorum yönlendirme hizmetinin tanıtım sitesi.
+- [Clash of Clans Bot](https://clashofclansbot.com/): Kendi projem / Android ve PC otomasyonu Kontrol paneli, farm ayarları ve ganimet filtreleri içeren bağımsız oyun otomasyonu.
+
+## Müşteri siteleri — müşteri markalarının sahibi değildir
+
+- [Veronika](https://veronika.com.tr): Müşteri projesi / Shopify İç giyim markası için kurulan Shopify mağazası: ürün girişi, sayfalar ve Türkçe arayüz.
+- [Maison Hevia](https://maisonhevia.com): Müşteri projesi / Shopify Dekorasyon ürünleri satan mağaza için Shopify tema kurulumu ve düzenlemesi.
+- [BKJ Power](https://bkjpower.com.tr): Müşteri projesi / WordPress Jeneratör firması için ürün ve servis sayfaları olan kurumsal WordPress sitesi.
+- [Lidya Flowers](https://lidyaflowers.com): Müşteri projesi / Wix Çiçekçi için Wix üzerinde kurulan, ürünleri listelenmiş çevrim içi mağaza.
+- [Oğuzhan Harita](https://oguzhanharita.com): Müşteri projesi / WordPress Harita ve imar danışmanlık bürosu için hizmet sayfaları olan kurumsal site.
+- [Adana Şehir Sürücü Kursu](https://adanasehirsurucukursu.com.tr): Müşteri projesi / Özel yazılım Sürücü kursu için ehliyet sınıflarını ve iletişim bilgilerini sunan kurumsal site.
+- [AGR Çorlu Oto Kiralama](https://agrcorluotokiralama.com): Müşteri projesi / SEO ve içerik Araç kiralama firmasının sitesinde SEO ve içerik çalışması yaptık.
+- [Fondip](https://fondip.com): Müşteri projesi / Özel yazılım Kaynak bağlantılı kayıtları listeleyen, arama ve kullanıcı bildirimlerini yönetim incelemesiyle işleyen içerik sitesi.
+
+## Canlı yayın oyunları
+
+- [Kabe Tavaf](https://muhammetcay.com/oyunlar/#oyun-1)
+- [Sanal Gazino](https://muhammetcay.com/oyunlar/#oyun-2)
+- [Trafikte Yarış](https://muhammetcay.com/oyunlar/#oyun-3)
+- [Slime Lab](https://muhammetcay.com/oyunlar/#oyun-4)
+- [Top Havuzu](https://muhammetcay.com/oyunlar/#oyun-5)
+- [Derbi Halat Çekme](https://muhammetcay.com/oyunlar/#oyun-6)
+- [Merdiven Yarışı](https://muhammetcay.com/oyunlar/#oyun-7)
+- [Tavuk Kümesi](https://muhammetcay.com/oyunlar/#oyun-8)
+- [Düğün Konvoyu](https://muhammetcay.com/oyunlar/#oyun-9)
+- [Penaltı Atışı](https://muhammetcay.com/oyunlar/#oyun-10)
+- [Çılgın Müteahhit](https://muhammetcay.com/oyunlar/#oyun-11)
+- [Gel Aşkını Bul](https://muhammetcay.com/oyunlar/#oyun-12)
+- [Akvaryum](https://muhammetcay.com/oyunlar/#oyun-13)
+- [Engelli Parkur](https://muhammetcay.com/oyunlar/#oyun-14)
+- [Kaplama Atölyesi](https://muhammetcay.com/oyunlar/#oyun-15)
+- [Denge Kulesi](https://muhammetcay.com/oyunlar/#oyun-16)
+- [Şeker Kavanozu](https://muhammetcay.com/oyunlar/#oyun-17)
+- [Havai Fişek Gecesi](https://muhammetcay.com/oyunlar/#oyun-18)
+
+## Müşteri mobil uygulaması
+
+- [Oakly Hex / Hexa](https://muhammetcay.com/uygulamalar/): Altıgen bloklarla renk eşleştirmeye dayanan bu Android müşteri projesinde tema düzenlemeleri, Türkçe arayüz ve Android yayın hazırlığı üzerinde çalıştım. Uygulamayı kendi ürünüm olarak sunmuyorum.
+
+## Video ve görsel çalışmalar
+
+- [Video portföyü](https://muhammetcay.com/video/): Ürün ve marka tanıtımları, kurgu, animasyon ve 3D görsel örnekleri.
+- [Grafik tasarım](https://muhammetcay.com/logo/): Grafik tasarım çalışmaları.
+
+## Mağazalar ve YouTube kanalları
+
+- [SepetZone — Shopify](https://sepetzone.com/)
+- [SepetZone — Trendyol](https://www.trendyol.com/magaza/sepetzone-m-853330)
+- [SepetZone — Hepsiburada](https://www.hepsiburada.com/magaza/sepetzone)
+- [GameNPC3D — E-ticaret](https://gamenpc3d.com/)
+- [FUTCoinTR — Oyun içi ürün](https://futcointr.com/)
+- [ShedLoop — Shopify](https://shedloop.com/)
+- [Furbrook — Shopify](https://furbrook.com/)
+- [VEINPSYHO — Etsy](https://www.etsy.com/shop/VEINPSYHO)
+- [VEINPSYCO — Etsy](https://www.etsy.com/shop/VEINPSYCO)
+- [VEINPSYCO — Gumroad](https://veinpsycho.gumroad.com/)
+- [ViceLens – GTA 6 Guides — YouTube](https://www.youtube.com/channel/UC7dsvdkPKpxE7tzG4AqT8ng)
+- [One Shift Back — YouTube](https://www.youtube.com/channel/UCi6VwJRGlsM6OJ5kqtvkaKw)
+- [FutCoin TR — YouTube](https://www.youtube.com/channel/UC_EAQjMDpPn0VFKy4trvqyA)
+- [EV Model Compare — YouTube](https://www.youtube.com/channel/UCQvRlFD6_5acEDpg9seU-dA)
+- [First Tide Stories — YouTube](https://www.youtube.com/channel/UCEbGixeDS66o_83KgDyUg2Q)
+- [Last Exit Stories — YouTube](https://www.youtube.com/channel/UCbd8LVeqv1ssNK9VOxUSGPw)
+
+## Doğrulanmış kişisel profiller
+
+- [GitHub — veinpsycoo](https://github.com/veinpsycoo)
+- [LinkedIn — Muhammet Çay](https://www.linkedin.com/in/muhammetcay/)
+- [R10 — veinpsyco](https://www.r10.net/veinpsyco)
+- [WM Aracı — veinpsyco](https://wmaraci.com/veinpsyco)
+- [OnlineHile — veinpsyco](https://www.onlinehile.com/uyeler/veinpsyco.50117/)
+- [TurkMMO — veinpsyco](https://forum.turkmmo.com/uye/2508970-veinpsyco/)
+- [WebmasterForum.net — veinpsyco](https://webmasterforum.net/uye/veinpsyco.1083/)
+- [MT2Forum — veinpsyco](https://mt2forum.net/members/veinpsyco.1/)
+- [WebmasterForum.com.tr — veinpsyco](https://webmasterforum.com.tr/uyeler/veinpsyco.13784/)
+- [DonanımHaber — veinpsyco](https://forum.donanimhaber.com/profil/3314978)
+- [BlackHatWorld — veinpsyco](https://www.blackhatworld.com/members/veinpsyco.2384398/)
+- [elitepvpers — veinpsyco](https://www.elitepvpers.com/forum/members/9109323-veinpsyco.html)
+- [Reddit — Background-Image2964](https://www.reddit.com/user/Background-Image2964/)
+- [Digital Point — veinpsyco](https://www.digitalpoint.com/members/veinpsyco.1152606/)
+- [Bionluk — muhammetcayy](https://bionluk.com/muhammetcayy)
+- [Armut — Muhammet Çay](https://armut.com/hizmetveren/muhammet-cay-istanbul-sancaktepe-web-site-yapimi_88893003)
+
+## Rehberler
+
+- [Hazırlık ve uygulama rehberleri](https://muhammetcay.com/rehberler/): Web sitesi, mağaza, SEO, GEO, otomasyon ve video projelerine ilişkin içerikler.
+- [Site haritası](https://muhammetcay.com/sitemap.xml): Yayındaki sayfaların dizini.
