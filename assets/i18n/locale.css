@@ -1,0 +1,28 @@
+
+.i18n-order-demo footer a{display:inline-block;max-width:100%;overflow-wrap:anywhere}
+.orbital-bottom{left:4%;right:4%;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);direction:ltr!important}
+.orbital-bottom #orbit-status{grid-column:1;min-width:0;max-width:100%;overflow-wrap:anywhere;justify-self:start}
+.orbital-bottom #motion-toggle{grid-column:2;justify-self:center;max-width:100%}
+html[dir=rtl] .orbital-bottom #orbit-status,html[dir=rtl] .orbital-bottom #motion-toggle{direction:rtl}
+
+@media(max-width:480px){.i18n-legacy-games .hearts{right:40px}}
+
+.i18n-legacy-games .game>*,.i18n-legacy-games .shots>*,.i18n-legacy-games .step{min-width:0;overflow-wrap:anywhere}
+@media(max-width:480px){.i18n-legacy-games .steps{grid-template-columns:minmax(0,1fr)}.i18n-legacy-games .shots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Locale-only additions; geometry and shared breakpoints remain source-owned. */
+.locale-switch{position:relative;color:inherit;font:14px/1.5 'Segoe UI',Arial,sans-serif;min-width:0}
+.locale-switch summary{cursor:pointer;padding:8px;white-space:nowrap;color:inherit}
+.locale-options{position:absolute;inset-inline-end:0;top:100%;z-index:100;display:flex;flex-wrap:wrap;gap:8px 14px;width:min(300px,85vw);padding:14px;background:#020303;border:1px solid #46524c;color:#f0f4f1}
+.locale-options a{color:inherit;text-decoration:underline}.locale-options [aria-current]{font-weight:700}
+body>.locale-switch{padding:10px 20px;background:#020303}.locale-switch a{white-space:normal}
+html[lang]:not([lang=tr]) #navigation a{white-space:normal}
+html[lang]:not([lang=tr]) h1,html[lang]:not([lang=tr]) h2,html[lang]:not([lang=tr]) .editorial-card{overflow-wrap:anywhere;min-width:0}
+html[lang]:not([lang=tr]) .timeline-heading>span:last-child{white-space:normal;font-size:14px}
+html[lang]:not([lang=tr]) .timeline-bubble{max-width:90vw}html[lang]:not([lang=tr]) .timeline-bubble span{overflow-wrap:anywhere}
+html[dir=rtl] body{text-align:start}html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] p{letter-spacing:normal;text-transform:none}
+html[dir=rtl] ul,html[dir=rtl] ol{padding-inline-start:24px;padding-inline-end:0}
+html[dir=rtl] .orbital-stage,html[dir=rtl] .monogram,html[dir=rtl] input[type=range],html[dir=rtl] input[type=tel],html[dir=rtl] input[type=email]{direction:ltr}
+html[dir=rtl] a[href^="tel:"],html[dir=rtl] a[href^="mailto:"]{direction:ltr;unicode-bidi:isolate}
+html[dir=rtl] .orbital-copy,html[dir=rtl] .timeline-heading,html[dir=rtl] .timeline-bubble,html[dir=rtl] .orbital-bottom,html[dir=rtl] .orbital-top{direction:rtl}
+@media(max-width:1250px){#navigation .locale-options{position:static;width:auto;max-width:100%;border:0;padding:8px 0}}
+@media(max-width:700px){html[lang]:not([lang=tr]) .orbital-copy{left:5%;right:5%}html[lang]:not([lang=tr]) .orbital-copy h1{font-size:clamp(25px,7vw,36px)}html[lang]:not([lang=tr]) .orbit-description{font-size:16px}}
